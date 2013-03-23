@@ -51,3 +51,6 @@ blockquote{
   margin-top: 50px;
   margin-bottom: 50px;
 }
+.DC_sel{
+  display: none;
+}

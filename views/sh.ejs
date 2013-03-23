@@ -8,6 +8,7 @@
     <link rel='stylesheet' href='/js/bootstrap.js' />
     <link rel='stylesheet' href='/css/main.css' />
     <script src="/js/bootstrap-collapse.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
   </head>
   <body>
   	<%= include head %>
@@ -37,25 +38,25 @@
 						<input type="checkbox" onchange="sck('work')"/>就業
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('transportation')">交通
+						<input type="checkbox" onchange="sck('transportation')">交通
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('living')">住屋補助
+						<input type="checkbox" onchange="sck('living')">住屋補助
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('allowance')">生活津貼
+						<input type="checkbox" onchange="sck('allowance')">生活津貼
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('tax')">稅捐減免
+						<input type="checkbox" onchange="sck('tax')">稅捐減免
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('medical')">保健醫療
+						<input type="checkbox" onchange="sck('medical')">保健醫療
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('care')">支持服務
+						<input type="checkbox" onchange="sck('care')">支持服務
 					</label>
 					<label class="checkbox">
-						<input type="checkbox" onchange="s1ck('emergency')">經濟扶助
+						<input type="checkbox" onchange="sck('emergency')">經濟扶助
 				    </label>
   				</form>
   				<button type="submit" class="btn">送出</button>
@@ -145,7 +146,40 @@
 					</label>
 					<label class="radio">
 						<input type="radio" name="aaa" onclick="s2ck('midincome','n')">否
-					</label>					
+					</label>	
+					<h5>重大傷病：<h5>
+					<label class="radio CIC_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('CIC','y')">是
+					</label>
+					<label class="radio CIC_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('CIC','n')">否
+					</label>	
+					<select class="CIC_sel">
+						<option>請選擇</option>
+						<option>請選擇</option>
+					</select>
+					<h5>罕見疾病：<h5>
+					<label class="radio RD_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('RD','y')">是
+					</label>
+					<label class="radio RD_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('RD','n')">否
+					</label>
+					<select class="RD_sel">
+						<option>請選擇</option>
+						<option>請選擇</option>
+					</select>	
+					<h5>身心障礙：<h5>
+					<label class="radio DC_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('DC','y')">是
+					</label>
+					<label class="radio DC_sel_ck">
+						<input type="radio" name="aaa" onclick="s2ck('DC','n')">否
+					</label>	
+					<select class="DC_sel">
+						<option>聽障</option>
+						<option>肢障</option>
+					</select>
 
   				</form>
   				<button type="submit" class="btn">送出</button>
@@ -177,17 +211,85 @@
 	</div>
 	<script>
 		var st1 = {};
-		var st1Arr =[];
+		st1.education = 'n';
+		st1.work = 'n';
+		st1.transportation= 'n';
+		st1.living = 'n';
+		st1.allowance = 'n';
+		st1.tax = 'n';
+		st1.medical = 'n';
+		st1.care = 'n';
+		st1.emergency = 'n';
+		var z = 0;
+
+		
 		function sck(name){
-			for (var i in st1Arr){
-				if(st1Arr[i] == name){
-					break;
+			switch(name){
+			case 'education':
+				if(st1.education == 'n') {
+					st1.education='y'
 				}else{
-					st1Arr.push(name);
+					st1.education='n'
 				}
+				break;
+			case 'work':
+				if(st1.work == 'n') {
+					st1.work='y'
+				}else{
+					st1.work='n'
+				}
+				break;
+			case 'transportation':
+				if(st1.transportation== 'n') {
+					st1.transportation='y'
+				}else{
+					st1.transportation='n'
+				}
+				break;
+			case 'living':
+				if(st1.living == 'n') {
+					st1.living='y'
+				}else{
+					st1.living='n'
+				}
+				break;
+			case 'allowance':
+				if(st1.allowance == 'n') {
+					st1.allowance='y'
+				}else{
+					st1.allowance='n'
+				}
+				break;
+			case 'tax':
+				if(st1.tax == 'n') {
+					st1.tax='y'
+				}else{
+					st1.tax='n'
+				}
+				break;
+			case 'medical':
+				if(st1.medical == 'n') {
+					st1.medical='y'
+				}else{
+					st1.medical='n'
+				}
+				break;
+			case 'care':
+				if(st1.care == 'n') {
+					st1.care='y'
+				}else{
+					st1.care='n'
+				}
+				break;
+			case 'emergency':
+				if(st1.emergency == 'n') {
+					st1.emergency='y'
+				}else{
+					st1.emergency='n'
+				}
+				break;
 			}
-			st1.sel=st1Arr;
-			console.log(st1.sel);
+			console.log(st1);
 		}
 		var st2={}
 		st2.singleparent='n';
@@ -200,41 +302,55 @@
 		st2.OA= 'n';
 		st2.lowincome= 'n';
 		st2.midincome= 'n';
-		function s2ch(name,ck){
+		function s2ck(name,ck){
 			switch(name){
-
-
 			case 'singleparent':
-				st2.singleparent = 'y';
+				st2.singleparent = ck;
 				break;
 			case 'divorce':
-				st2.divorce = 'y';
+				st2.divorce = ck;
 				break;
 			case 'unemployment':
-				st2.unemployment = 'y';
+				st2.unemployment = ck;
 				break;
 			case 'lost':
-				st2.lost = 'y';
+				st2.lost = ck;
 				break;
 			case 'dropout':
-				st2.dropout = 'y';
+				st2.dropout = ck;
 				break;
 			case 'aboringinal':
-				st2.aboringinal = 'y';
+				st2.aboringinal = ck;
 				break;
 			case 'LI':
-				st2.LI= 'y';
+				st2.LI= ck;
 				break;
 			case 'OA':
-				st2.OA = 'y';
+				st2.OA = ck;
 				break;
 			case 'lowincome':
-				st2.lowincome= 'y';
+				st2.lowincome= ck;
 				break;
 			case 'midincome':
-				st2.midincome = 'y';
+				st2.midincome = ck;
+				break;
+			case 'CIC':
+				st2.CIC = ck;
+				$('.CIC_sel').css('display','block');
+				$('.CIC_sel_ck').css('display','none');
+				break;
+			case 'RD':
+				st2.RD = ck;
+				$('.RD_sel').css('display','block');
+				$('.RD_sel_ck').css('display','none');
+				break;
+			case 'DC':
+				st2.DC = ck;
+				$('.DC_sel').css('display','block');
+				$('.DC_sel_ck').css('display','none');
 				break;
 			}
+			console.log(st2);
 		}
 		
 	</script>
