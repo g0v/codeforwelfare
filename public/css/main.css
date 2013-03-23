@@ -38,6 +38,9 @@ body {
 .hideheader{
   
 }
+.need-help{
+  float: right
+}
 h1{font-size:4em; line-height: 1em; padding: 0;}
 p {padding: 3px 5px; font-size: 1; margin: 0; text-transform: uppercase;}
 blockquote{

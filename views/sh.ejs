@@ -20,16 +20,24 @@
   		<div class="row-fluid">
   			<div class="span12">
   				<!-- Button to trigger modal -->
-				<a href="#myModal" role="button" class="btn btn-success" data-toggle="modal">我需要幫忙</a>
+				<a href="#myModal" role="button" class="btn btn-success need-help" data-toggle="modal">我需要幫忙</a>
 				<!-- Modal -->
 				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Modal header</h3>
+						<h3 id="myModalLabel">Help！</h3>
 					</div>
 					<div class="modal-body">
-						<p>One fine body…</p>
+						姓名：<input type="text" placeholder="怎麼稱呼您?"><br/>
+						電子信箱：<input type="text" placeholder="請輸入Email"><br/>
+						電話：<input type="text" placeholder="請輸入Email"><br/>
+						<p style="color:red">*以上資料僅為本站人員聯繫用，絕不公開</p>
+						<label class="help_1">
+							<input type="checkbox" onchange="sck('work')"/> 勾選公開下方資料請網友協助
+						</label>
+						<textarea rows="3" placeholder="需要什麼幫忙呢？"></textarea>
 					</div>
+
 					<div class="modal-footer">
 						<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
 						<button class="btn btn-primary">張貼文章</button>
@@ -79,7 +87,51 @@
 		  				</form>
 	  				</div>
   				</div>
-  				<div class="span12">
+  				<div class="span12 row-fluid">
+  					<h4 class="span12">查詢項目:</h4>
+  					<div class="span11">
+	  					<blockquote>
+						<p>無障礙之家住宿照顧補助</p>
+						<small><span class="label">Default</span><span class="label">Default</span><span class="label">Default</span><span class="label">Default</span></small>
+						</blockquote>
+					</div>
+					<br/>
+					<div class="span11">
+	  					<blockquote>
+						<p>無障礙之家住宿照顧補助</p>
+						<small><span class="label">Default</span><span class="label">Default</span><span class="label">Default</span><span class="label">Default</span></small>
+						</blockquote>
+					</div>
+					<div class="span11">
+	  					<blockquote>
+						<p>Html5 &amp; Javascript 基礎</p>
+						<small><div class="btn">123</div></small>
+						</blockquote>
+					</div>
+					<div class="span11">
+	  					<blockquote>
+						<p>Html5 &amp; Javascript 基礎</p>
+						<small><div class="btn">123</div></small>
+						</blockquote>
+					</div>
+					<div class="span11">
+	  					<blockquote>
+						<p>Html5 &amp; Javascript 基礎</p>
+						<small><div class="btn">123</div></small>
+						</blockquote>
+					</div>
+					<div class="span11">
+	  					<blockquote>
+						<p>Html5 &amp; Javascript 基礎</p>
+						<small><div class="btn">123</div></small>
+						</blockquote>
+					</div>
+					<div class="span11">
+	  					<blockquote>
+						<p>Html5 &amp; Javascript 基礎</p>
+						<small><div class="btn">123</div></small>
+						</blockquote>
+					</div>
   				</div>			
   			</div>
   			<div class="span3">
@@ -91,84 +143,43 @@
 					</select>
   					<h5>年齡：</h5>
   					<input type="text" placeholder="Type something…">
-  					<div class="btn" onclick="s2ck('singleparent','y')">單親：</div>
-					<div class="btn" onclick="s2ck('divorce','y')">離婚：</div> 
-					<div class="btn" onclick="s2ck('unemployment','y')">失業：</div> 
-					<div class="btn" onclick="s2ck('lost','y')">失蹤：</div> 
-					<div class="btn" onclick="s2ck('dropout','y')">中輟生：</div>
-					
-					<h5>原住民：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('aboringinal','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('aboringinal','n')">否
-					</label>
-					<h5>具不具勞保身分：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('LI','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('LI','n')">否
-					</label>
-					<h5>職災者：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('OA','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('OA','n')">否
-					</label>
-					<h5>低收入戶：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('lowincome','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('lowincome','n')">否
-					</label>
-					<h5>中收入戶：<h5>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('midincome','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('midincome','n')">否
-					</label>	
-					<h5>重大傷病：<h5>
-					<label class="radio CIC_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('CIC','y')">是
-					</label>
-					<label class="radio CIC_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('CIC','n')">否
-					</label>	
+  					<div class="btn" onclick="s2ck('singleparent','y')">單親</div>
+  					<br/>
+					<div class="btn" onclick="s2ck('divorce','y')">離婚</div> 
+					<br/>
+					<div class="btn" onclick="s2ck('unemployment','y')">失業</div> 
+					<br/>
+					<div class="btn" onclick="s2ck('lost','y')">失蹤</div> 
+					<br/>
+					<div class="btn" onclick="s2ck('dropout','y')">中輟生</div>
+					<br/>
+					<div class="btn" onclick="s2ck('aboringinal','y')">原住民</div>
+					<br/> 
+					<div class="btn" onclick="s2ck('LI','y')">勞保身分</div>
+					<br/>
+					<div class="btn" onclick="s2ck('OA','y')">職災者</div>
+					<br/>
+					<div class="btn" onclick="s2ck('lowincome','y')">低收入戶</div>
+					<br/>
+					<div class="btn" onclick="s2ck('midincome','y')">中收入戶</div>
+					<br/>
+					<div class="btn" onclick="s2ck('CIC','y')">重大傷病</div>
 					<select class="CIC_sel">
 						<option>請選擇</option>
 						<option>請選擇</option>
 					</select>
-					<h5>罕見疾病：<h5>
-					<label class="radio RD_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('RD','y')">是
-					</label>
-					<label class="radio RD_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('RD','n')">否
-					</label>
+					<div class="btn" onclick="s2ck('RD','y')">罕見疾病</div>
 					<select class="RD_sel">
 						<option>請選擇</option>
 						<option>請選擇</option>
 					</select>	
 					<h5>身心障礙：<h5>
-					<label class="radio DC_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('DC','y')">是
-					</label>
-					<label class="radio DC_sel_ck">
-						<input type="radio" name="aaa" onclick="s2ck('DC','n')">否
-					</label>	
+					<div class="btn" onclick="s2ck('DC','y')">身心障礙</div>
 					<select class="DC_sel">
 						<option>聽障</option>
 						<option>肢障</option>
 					</select>
-
   				</form>
-  				<button type="submit" class="btn">送出</button>
-
   			</div>
   		</div>
 	</div>
