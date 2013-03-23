@@ -8,6 +8,7 @@ var http = require('http');
 var path = require('path');
 var models = require('./models');
 var config = require('./config');
+var db = require('./db');
 
 var app = express();
 
@@ -27,6 +28,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+db.sync().success(function () {
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
+  });
+}).fail(function () {
+  console.log(arguments);
 });
