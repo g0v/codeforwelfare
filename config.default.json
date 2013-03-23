@@ -1,0 +1,11 @@
+{
+  "sitename": "福利搜尋器",
+  "port": 3000,
+  "host": "localhost",
+  "db": {
+    "name": "listening",
+    "user": "root",
+    "pass": "123",
+    "host": "localhost"
+  }
+}
