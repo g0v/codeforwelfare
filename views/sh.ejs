@@ -26,36 +26,36 @@
       			<div class="accordion-inner">
   				<form>
   					<h5>地區：</h5>
-  					<select>
-					  <option>高雄市政府</option>
+  					<select class="location">
+						<option>高雄市政府</option>
 					</select>
 					<h5>福利類別：</h5>
-					<label class="edu">
-						<input type="checkbox"/>教育
+					<label class="">
+						<input type="checkbox" onchange="sck('education')"/>教育
 					</label>
 					<label class="work">
-						<input type="checkbox"/>就業
+						<input type="checkbox" onchange="sck('work')"/>就業
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">交通
+						<input type="checkbox" onchange="s1ck('transportation')">交通
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">住屋補助
+						<input type="checkbox" onchange="s1ck('living')">住屋補助
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">生活津貼
+						<input type="checkbox" onchange="s1ck('allowance')">生活津貼
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">稅捐減免
+						<input type="checkbox" onchange="s1ck('tax')">稅捐減免
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">保健醫療
+						<input type="checkbox" onchange="s1ck('medical')">保健醫療
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">支持服務
+						<input type="checkbox" onchange="s1ck('care')">支持服務
 					</label>
 					<label class="checkbox">
-						<input type="checkbox">經濟扶助
+						<input type="checkbox" onchange="s1ck('emergency')">經濟扶助
 				    </label>
   				</form>
   				<button type="submit" class="btn">送出</button>
@@ -78,73 +78,73 @@
   					<input type="text" placeholder="Type something…">
   					<h5>單親：</h5>
   					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('singleparent','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('singleparent','n')">否
 					</label>
 					<h5>離婚：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('divorce','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('divorce','n')">否
 					</label>
 					<h5>失業：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('unemployment','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('unemployment','n')">否
 					</label>	
 					<h5>失蹤：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('lost','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('lost','n')">否
 					</label>
 					<h5>中輟生：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('dropout','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('dropout','n')">否
 					</label>
 					<h5>原住民：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('aboringinal','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('aboringinal','n')">否
 					</label>
 					<h5>具不具勞保身分：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('LI','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('LI','n')">否
 					</label>
 					<h5>職災者：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('OA','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('OA','n')">否
 					</label>
 					<h5>低收入戶：<h5> 
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('lowincome','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('lowincome','n')">否
 					</label>
 					<h5>中收入戶：<h5>
 					<label class="radio">
-						<input type="radio" name="aaa">是
+						<input type="radio" name="aaa" onclick="s2ck('midincome','y')">是
 					</label>
 					<label class="radio">
-						<input type="radio" name="aaa">否
+						<input type="radio" name="aaa" onclick="s2ck('midincome','n')">否
 					</label>					
 
   				</form>
@@ -163,8 +163,6 @@
 		  				<button type="submit" class="btn">送出</button>
 	  				</div>
   				</div>
-  				
-
   			</div>
   			<div class="span9">
   				<div class="btn btn-success">
@@ -177,5 +175,68 @@
   			</div>
   		</div>
 	</div>
+	<script>
+		var st1 = {};
+		var st1Arr =[];
+		function sck(name){
+			for (var i in st1Arr){
+				if(st1Arr[i] == name){
+					break;
+				}else{
+					st1Arr.push(name);
+				}
+			}
+			st1.sel=st1Arr;
+			console.log(st1.sel);
+		}
+		var st2={}
+		st2.singleparent='n';
+		st2.divorce= 'n';
+		st2.unemployment= 'n';
+		st2.lost= 'n';
+		st2.dropout= 'n';
+		st2.aboringinal= 'n';
+		st2.LI= 'n';
+		st2.OA= 'n';
+		st2.lowincome= 'n';
+		st2.midincome= 'n';
+		function s2ch(name,ck){
+			switch(name){
+
+
+			case 'singleparent':
+				st2.singleparent = 'y';
+				break;
+			case 'divorce':
+				st2.divorce = 'y';
+				break;
+			case 'unemployment':
+				st2.unemployment = 'y';
+				break;
+			case 'lost':
+				st2.lost = 'y';
+				break;
+			case 'dropout':
+				st2.dropout = 'y';
+				break;
+			case 'aboringinal':
+				st2.aboringinal = 'y';
+				break;
+			case 'LI':
+				st2.LI= 'y';
+				break;
+			case 'OA':
+				st2.OA = 'y';
+				break;
+			case 'lowincome':
+				st2.lowincome= 'y';
+				break;
+			case 'midincome':
+				st2.midincome = 'y';
+				break;
+			}
+		}
+		
+	</script>
   </body>
 </html>
