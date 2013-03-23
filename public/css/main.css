@@ -1,0 +1,53 @@
+/*==CSS Mask by Amanda Hawkins==*/
+h1.ex1 {  
+  -webkit-mask-image: url(http://ahhh.co/files/ex1.png);
+  color: #3f3f3f; 
+  text-shadow: 2px 3px #fff, 7px 7px #c3c1c2; 
+}
+
+h1.ex2 {  
+  -webkit-mask-image: url(http://ahhh.co/files/ex2.png);
+  color: #ec4679; 
+  text-shadow: 2px 3px #fff, 6px 6px #333;  
+}
+    
+h1.ex3 {  
+  -webkit-mask-image: url(http://ahhh.co/files/ex3.png);
+  color: #1ba29a; 
+  text-align: center;
+  text-shadow: 2px 3px #fff, 4px 5px #1ba29a; 
+}
+    
+h1.ex4 {  
+  -webkit-mask-image: url(http://ahhh.co/files/ex4.png);
+  color: #444; 
+  text-shadow: 2px 3px #fff, 4px 5px #444;  
+}
+  
+/**** Other Stuff ***/
+body {
+  background: url('./image/pw_maze_white.png')
+}
+.mainContainer{
+  background: #f9f9f9;
+  padding: 0 40px;
+  padding-top: 20px;
+  border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+}
+.hideheader{
+  
+}
+h1{font-size:4em; line-height: 1em; padding: 0;}
+p {padding: 3px 5px; font-size: 1; margin: 0; text-transform: uppercase;}
+blockquote{
+  background: #fff;
+}
+.form-search{
+  width: 350px;
+  margin: 0 auto;
+}
+.search_div{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

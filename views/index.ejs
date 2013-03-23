@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeForWelfare</title>
+    <link rel='stylesheet' href='/css/bootstrap.css' />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel='stylesheet' href='/js/jquery.scrollAnimate.js' />
+    <link rel='stylesheet' href='/js/bootstrap.js' />
+    <link rel='stylesheet' href='/css/main.css' />
+  </head>
+  <body>
+  	<%= include head %>
+  	 <div style="width:100%;height:270px;background:#fff;margin-top:-10px;padding-top:30px;border-bottom:1px solid #e6e6e6;">
+		<h1 class="ex1 text-center">Code For Welfare</h1>
+		<p class = "text-center">政府福利搜尋引擎</p>
+		<div class="search_div" href="#search_engine">
+			<form class="form-search">
+				請選擇縣市：
+			  <select style="width:100px;">
+				<option>高雄市</option>
+				<option>新竹市</option>
+				<option>台北市</option>
+				<option>基隆市</option>
+				<option>台中市</option>
+			  </select>
+			  <br/><br/>
+			  	請輸入欲找項目：
+			  <div class="input-append">
+			    <input type="text" class="span2 search-query">
+			    <button type="submit" class="btn">Search</button>
+			  </div>
+			</form>
+		</div>
+	</div>
+  	<div class="container mainContainer">
+		
+		<br><br>
+
+		<div class="getapi" href="#intro_plant">
+			<blockquote>
+			<p>目前建立地方政府福利API</p>
+			<small>高雄縣市</small>
+			</blockquote>
+			<legend></legend>
+			<h3>Welfare API 取用</h3>
+			以高雄市為例：
+			<br/>
+			https://github.com/g0v/listening/blob/master/data/structural_data/KSG/finaldata.json
+			<br/>
+			<br/>
+			{<br/>
+				"gov":"哪個政府？ex.ks  (規格請參照...)",<br/>
+				"tags":"法規分類：ex.老人福利 (規格請參照...)",<br/>
+				"title":"福利法規名稱",<br/>
+				"href":"福利法規網址",<br/>
+				"content":"福利法規網站內容，只需要文字去幫助搜索"<br/>
+			}<br/>
+			<br/><br/><br/>
+		</div>
+		<legend></legend>
+		<div class="memberdiv">
+			<h3>參與計畫成員</h3>
+			<address>
+			  Blue Chen （聯絡人）<br>
+			  Facebook: www.facebook.com/iambluechen<br>
+			</address>
+			<address>
+				Jerry Lee<br>
+				http://www.facebook.com/wildjcrt
+			</address>
+			<address>
+				Shawn Wang<br>
+				http://www.facebook.com/shawn.wang.111
+			</address>
+			<address>
+				Peggy Lo<br>
+				http://www.facebook.com/peichi.lo.3
+			</address>
+			<br/>
+			<legend></legend>
+			如果你有意一起來貢獻，請與我們聯絡！
+			<br><br>
+		</div>
+	</div>
+  </body>
+</html>
