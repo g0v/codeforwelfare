@@ -8,6 +8,7 @@
     <link rel='stylesheet' href='/js/bootstrap.js' />
     <link rel='stylesheet' href='/css/main.css' />
     <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
   </head>
   <body>
@@ -16,59 +17,72 @@
 
 
   	<div class="container mainContainer">
-  		<div class="row">
+  		<div class="row-fluid">
+  			<div class="span12">
+  				<!-- Button to trigger modal -->
+				<a href="#myModal" role="button" class="btn btn-success" data-toggle="modal">我需要幫忙</a>
+				<!-- Modal -->
+				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="myModalLabel">Modal header</h3>
+					</div>
+					<div class="modal-body">
+						<p>One fine body…</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+						<button class="btn btn-primary">張貼文章</button>
+					</div>
+				</div>
+  			</div>
+  			<div class="span8">
+  				<div class="span12">
+  					<div class="row fr_st">
+		  				<form class="span12 row-fluid">
+		  					<div class="span4">
+			  					<h5>地區：</h5>
+			  					<select class="location">
+									<option onclick="hihi()">高雄市政府</option>
+								</select>
+							</div>
+							<div class="span8">
+								<h5>福利類別：</h5>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('education')"/> 教育
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('work')"/> 就業
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('transportation')">交通
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('living')">住屋補助
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('allowance')">生活津貼
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('tax')">稅捐減免
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('medical')">保健醫療
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('care')">支持服務
+								</label>
+								<label class="s1">
+									<input type="checkbox" onchange="sck('emergency')">經濟扶助
+							    </label>
+							</div>
+		  				</form>
+	  				</div>
+  				</div>
+  				<div class="span12">
+  				</div>			
+  			</div>
   			<div class="span3">
-  				<div class="accordion-heading">
-  					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">
-  						<h3>第一階段查詢
-  					</a>
-  				</div>
-  				<div id="collapse1" class="accordion-body">
-      			<div class="accordion-inner">
-  				<form>
-  					<h5>地區：</h5>
-  					<select class="location">
-						<option>高雄市政府</option>
-					</select>
-					<h5>福利類別：</h5>
-					<label class="">
-						<input type="checkbox" onchange="sck('education')"/>教育
-					</label>
-					<label class="work">
-						<input type="checkbox" onchange="sck('work')"/>就業
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('transportation')">交通
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('living')">住屋補助
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('allowance')">生活津貼
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('tax')">稅捐減免
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('medical')">保健醫療
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('care')">支持服務
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" onchange="sck('emergency')">經濟扶助
-				    </label>
-  				</form>
-  				<button type="submit" class="btn">送出</button>
-  				</div>
-  				</div>
-  				<div class="accordion-heading">
-  					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
-  					<h3>第二階段查詢</h3>
-  					</a>
-  				</div>
-  				<div id="collapse2" class="accordion-body collapse">
-      			<div class="accordion-inner">
   				<form>
   					<h5>性別：</h5>
   					<select>
@@ -77,41 +91,12 @@
 					</select>
   					<h5>年齡：</h5>
   					<input type="text" placeholder="Type something…">
-  					<h5>單親：</h5>
-  					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('singleparent','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('singleparent','n')">否
-					</label>
-					<h5>離婚：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('divorce','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('divorce','n')">否
-					</label>
-					<h5>失業：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('unemployment','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('unemployment','n')">否
-					</label>	
-					<h5>失蹤：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('lost','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('lost','n')">否
-					</label>
-					<h5>中輟生：<h5> 
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('dropout','y')">是
-					</label>
-					<label class="radio">
-						<input type="radio" name="aaa" onclick="s2ck('dropout','n')">否
-					</label>
+  					<div class="btn" onclick="s2ck('singleparent','y')">單親：</div>
+					<div class="btn" onclick="s2ck('divorce','y')">離婚：</div> 
+					<div class="btn" onclick="s2ck('unemployment','y')">失業：</div> 
+					<div class="btn" onclick="s2ck('lost','y')">失蹤：</div> 
+					<div class="btn" onclick="s2ck('dropout','y')">中輟生：</div>
+					
 					<h5>原住民：<h5> 
 					<label class="radio">
 						<input type="radio" name="aaa" onclick="s2ck('aboringinal','y')">是
@@ -183,29 +168,7 @@
 
   				</form>
   				<button type="submit" class="btn">送出</button>
-  				</div>
-  				</div>
-  				<div class="accordion-heading">
-  					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse3">
-  						<h3>第三階段查詢
-  					</a>
-  				</div>
-  				<div id="collapse3" class="accordion-body collapse">
-	      			<div class="accordion-inner">
-		  				<form>
-		  				</form>
-		  				<button type="submit" class="btn">送出</button>
-	  				</div>
-  				</div>
-  			</div>
-  			<div class="span9">
-  				<div class="btn btn-success">
-  					我需要幫忙
-  				</div>
-  				<blockquote>
-					<p>目前建立地方政府福利API</p>
-					<small>高雄縣市</small>
-				</blockquote>
+
   			</div>
   		</div>
 	</div>
@@ -222,7 +185,9 @@
 		st1.emergency = 'n';
 		var z = 0;
 
-		
+		function hihi(){
+			console.log('yoyo');
+		}
 		function sck(name){
 			switch(name){
 			case 'education':
@@ -291,6 +256,14 @@
 			}
 			console.log(st1);
 		}
+		// $.ajax({
+		//   type: "POST",
+		//   url: "some.php",
+		//   data: { name: "John", location: "Boston" }
+		// }).done(function( msg ) {
+		//   alert( "Data Saved: " + msg );
+		// });
+
 		var st2={}
 		st2.singleparent='n';
 		st2.divorce= 'n';

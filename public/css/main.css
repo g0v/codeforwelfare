@@ -54,3 +54,17 @@ blockquote{
 .DC_sel{
   display: none;
 }
+.stck1{
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  margin-left: 0;
+}
+.s1{
+  float: left;
+  margin-left:5px;
+  width: 20%;
+}
+.stck1 .fr_st{
+  padding: 10px;
+}
+
