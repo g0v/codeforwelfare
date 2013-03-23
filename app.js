@@ -34,11 +34,23 @@ app.get('/sh', function(req, res) {
   res.render('sh');
 });
 
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+app.get('/intro_plant', function(req, res) {
+  res.render('about');
+});
+
 app.get('/searchresault', function(req, res) {
   res.render('resault');
 });
 app.get('/resaultcontent', function(req, res) {
   res.render('content');
+});
+
+app.get('/problems', function(req, res) {
+  res.render('problems');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
