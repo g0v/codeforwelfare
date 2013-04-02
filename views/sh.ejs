@@ -3,19 +3,19 @@
   <head>
     <title>CodeForWelfare</title>
     <link rel='stylesheet' href='/css/bootstrap.css' />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/js/json2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="/js/underscore.js"></script>
+    <script src="/js/backbone.js"></script>
+    <script src="/js/backbone.localStorage.js"></script>
     <link rel='stylesheet' href='/js/jquery.scrollAnimate.js' />
     <link rel='stylesheet' href='/js/bootstrap.js' />
     <link rel='stylesheet' href='/css/main.css' />
     <script src="/js/bootstrap-collapse.js"></script>
     <script src="/js/bootstrap-modal.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
   </head>
   <body>
   	<%= include head %>
-
-
-
   	<div class="container mainContainer">
   		<div class="row-fluid">
   			<div class="span12">
@@ -48,19 +48,13 @@
   				<div class="span12">
   					<div class="row fr_st">
   						<div class="span12 sel_sk_btn">
-  							<span class="label">Default</span>
-  							<span class="label">Default</span>
-  							<span class="label">Default</span>
-  							<span class="label">Default</span>
-  							<span class="label">Default</span>
-  							<span class="label">Default</span>
-
+							
   						</div>
 		  				<form class="span12 row-fluid">
 		  					<div class="span4">
 			  					<h5>地區：</h5>
 			  					<select class="location">
-									<option onclick="hihi()">高雄市政府</option>
+									<option>高雄市政府</option>
 								</select>
 							</div>
 							<div class="span8">
@@ -175,10 +169,9 @@
 		st1.care = 'n';
 		st1.emergency = 'n';
 		var z = 0;
-
-		function hihi(){
-			console.log('yoyo');
-		}
+		// function hihi(){
+		// 	console.log('yoyo');
+		// }
 		function sck(name){
 			switch(name){
 			case 'education':
@@ -317,6 +310,154 @@
 			console.log(st2);
 		}
 		
+
+		//backbone
+		$(function(){
+
+		  var Listening = Backbone.Model.extend({
+		    defaults: function() {
+		      return {
+		        title: "empty todo...",
+		        order: Todos.nextOrder(),
+		        done: false
+		      };
+		    },
+		    toggle: function() {
+		      this.save({select: !this.get("select")});
+		    }
+		  });
+		  var ListeningSelectList = Backbone.Collection.extend({
+		    model: Listening,
+		    localStorage: new Backbone.LocalStorage("listening_select"),
+		    done: function() {
+		      return this.where({select: true});
+		    },
+		    remaining: function() {
+		      return this.without.apply(this, this.done());
+		    },
+		    nextOrder: function() {
+		      if (!this.length) return 1;
+		      return this.last().get('order') + 1;
+		    },
+		    comparator: 'order'
+		  });
+
+		  var Listenings = new ListeningSelectList ;
+		  var TodoView = Backbone.View.extend({
+		    
+		    tagName:  "li",
+		    template: _.template($('#item-template').html()),
+		    events: {
+		      "click .toggle"   : "toggleDone",
+		      "dblclick .view"  : "edit",
+		      "click a.destroy" : "clear",
+		      "keypress .edit"  : "updateOnEnter",
+		      "blur .edit"      : "close"
+		    },
+		    initialize: function() {
+		      this.listenTo(this.model, 'change', this.render);
+		      this.listenTo(this.model, 'destroy', this.remove);
+		    },
+		    render: function() {
+		      this.$el.html(this.template(this.model.toJSON()));
+		      this.$el.toggleClass('done', this.model.get('done'));
+		      this.input = this.$('.edit');
+		      return this;
+		    },
+		    toggleDone: function() {
+		      this.model.toggle();
+		    },
+		    edit: function() {
+		      this.$el.addClass("editing");
+		      this.input.focus();
+		    },
+		    close: function() {
+		      var value = this.input.val();
+		      if (!value) {
+		        this.clear();
+		      } else {
+		        this.model.save({title: value});
+		        this.$el.removeClass("editing");
+		      }
+		    },
+		    updateOnEnter: function(e) {
+		      if (e.keyCode == 13) this.close();
+		    },
+		    clear: function() {
+		      this.model.destroy();
+		    }
+		  });
+		  var AppView = Backbone.View.extend({
+		    el: $("#todoapp"),
+		    statsTemplate: _.template($('#stats-template').html()),
+		    events: {
+		      "keypress #new-todo":  "createOnEnter",
+		      "click #clear-completed": "clearCompleted",
+		      "click #toggle-all": "toggleAllComplete"
+		    },
+		    initialize: function() {
+		      this.input = this.$("#new-todo");
+		      this.allCheckbox = this.$("#toggle-all")[0];
+		      this.listenTo(Todos, 'add', this.addOne);
+		      this.listenTo(Todos, 'reset', this.addAll);
+		      this.listenTo(Todos, 'all', this.render);
+		      this.footer = this.$('footer');
+		      this.main = $('#main');
+		      Todos.fetch();
+		    },
+		    render: function() {
+		      var done = Todos.done().length;
+		      var remaining = Todos.remaining().length;
+
+		      if (Todos.length) {
+		        this.main.show();
+		        this.footer.show();
+		        this.footer.html(this.statsTemplate({done: done, remaining: remaining}));
+		      } else {
+		        this.main.hide();
+		        this.footer.hide();
+		      }
+		      this.allCheckbox.checked = !remaining;
+		    },
+		    addOne: function(todo) {
+		      var view = new TodoView({model: todo});
+		      this.$("#todo-list").append(view.render().el);
+		    },
+		    addAll: function() {
+		      Todos.each(this.addOne, this);
+		    },
+		    createOnEnter: function(e) {
+		      if (e.keyCode != 13) return;
+		      if (!this.input.val()) return;
+		      Todos.create({title: this.input.val()});
+		      this.input.val('');
+		    },
+		    clearCompleted: function() {
+		      _.invoke(Todos.done(), 'destroy');
+		      return false;
+		    },
+
+		    toggleAllComplete: function () {
+		      var done = this.allCheckbox.checked;
+		      Todos.each(function (todo) { todo.save({'done': done}); });
+		    }
+
+		  });
+		  var App = new AppView;
+		});
+		_.templateSettings = {
+		    interpolate : /\{\{(.+?)\}\}/g
+		};
+		
 	</script>
+	<script type="text/template" id="add_sel">
+		<span class="label">Default</span>
+	</script>
+	<script type="text/template" id="stats-template">
+	     if (done) { }}
+	      <a id="clear-completed">Clear {{ done }} completed {{ done == 1 ? 'item' : 'items' }}</a>
+	    {{ } }}
+	    <div class="todo-count"><b>{{ remaining }}</b> {{ remaining == 1 ? 'item' : 'items' }} left</div>
+   	</script>
   </body>
 </html>
